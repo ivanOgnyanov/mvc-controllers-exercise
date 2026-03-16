@@ -21,7 +21,7 @@ cd mvc-controllers-exercise
 
 2. Инсталирайте PHP зависимостите:
 ```bash
-composer install
+composer update
 ```
 
 3. Копирайте конфигурационния файл:
