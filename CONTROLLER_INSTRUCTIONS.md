@@ -73,7 +73,7 @@ Route::get('/', function () {
 **Вашата задача:** Направете същото за страницата "Статии".
 
 ### Подсказки:
-1. В `routes/web.php` добавете `->name('articles.list')` към route-а за `/articles`
+1. В `routes/web.php` добавете `->name('articles.index')` към route-а за `/articles`
 2. В `navbar.blade.php` променете линка за "Статии" по същия начин като "Начало"
 
 ### Очакван резултат:
@@ -378,8 +378,8 @@ use App\Http\Controllers\UserController;
 
 // ... други routes ...
 
-Route::get('/register', [UserController::class, 'create'])->name('register');
-Route::post('/register', [UserController::class, 'store']);
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 ```
 
 ### 7.4 Създайте view за регистрация
@@ -406,7 +406,7 @@ Route::post('/register', [UserController::class, 'store']);
                         <div class="alert alert-success">{{ session('success') }}</div>
                     @endif
 
-                    <form action="{{ route('register') }}" method="POST">
+                    <form action="{{ route('users.store') }}" method="POST">
                         @csrf
 
                         <!-- Име -->
@@ -452,7 +452,7 @@ Route::post('/register', [UserController::class, 'store']);
 
 ### Проверка в браузър
 
-1. Отворете: **http://127.0.0.1:8000/register**
+1. Отворете: **http://127.0.0.1:8000/users/create**
 2. Попълнете формата
 3. Натиснете "Регистрирай се"
 4. **Очакван резултат:** Виждате `dd()` с всички данни от формата
