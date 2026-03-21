@@ -53,3 +53,13 @@ php artisan serve
 ```
 
 Приложението ще бъде достъпно на: http://localhost:8000
+
+## Клонове
+
+### mvc-controllers-finilized
+В този бранч са изпълнени всички задачи от CONTROLLER_INSTRUCTIONS.md:
+- Named routes и активни линкове в навигацията
+- SubscriptionController с валидация на имейл
+- UserController за регистрация на потребители
+- Форма за регистрация с валидация (име, имейл, парола)
+- Съобщения за грешки на български език

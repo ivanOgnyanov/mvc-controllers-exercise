@@ -33,15 +33,26 @@
                 <i class="bi bi-envelope me-2"></i>Абонирай се
             </h5>
             <p class="text-muted small">Получавай нови статии директно в пощата си.</p>
-            <form >
-                @csrf
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Твоят имейл">
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                    Абонирай се <i class="bi bi-send ms-1"></i>
-                </button>
-            </form>
+            
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        <form action="{{ route('subscribe') }}" method="POST">
+            @csrf
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror            
+            <div class="mb-3">
+                <input type="email" name="email"
+                    class="form-control @error('email') is-invalid @enderror"
+                    placeholder="Твоят имейл"
+                    value="{{ old('email') }}">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+                Абонирай се <i class="bi bi-send ms-1"></i>
+            </button>
+        </form>
         </div>
     </div>
 </aside>
